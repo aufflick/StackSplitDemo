@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6198" systemVersion="14A297b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6198"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -641,12 +643,12 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="StackSplit" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--Window Controller - Window-->
+        <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
@@ -667,15 +669,102 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="StackSplit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="684" height="440"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Wv-yU-7sN" customClass="ResizeCursorStackView" customModule="StackSplit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="684" height="440"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="C1D-TG-Tbc" customClass="WhiteView" customModule="StackSplit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="440"/>
+                                        <subviews>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="qwi-0F-NiB">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="440"/>
+                                                <subviews>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ZPj-Xg-JMw">
+                                                        <rect key="frame" x="54" y="178" width="92" height="85"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="88" id="jaz-0d-UpG"/>
+                                                            <constraint firstAttribute="height" constant="85" id="xhB-Tt-T9Z"/>
+                                                        </constraints>
+                                                        <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="Left view with content that can't layout properly at zero width." id="usj-ob-dWn">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="ZPj-Xg-JMw" firstAttribute="centerX" secondItem="qwi-0F-NiB" secondAttribute="centerX" id="BfT-l3-YwY"/>
+                                                    <constraint firstItem="ZPj-Xg-JMw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qwi-0F-NiB" secondAttribute="leading" constant="8" id="Jie-uR-Qk7"/>
+                                                    <constraint firstItem="ZPj-Xg-JMw" firstAttribute="centerY" secondItem="qwi-0F-NiB" secondAttribute="centerY" id="doW-V8-2BT"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZPj-Xg-JMw" secondAttribute="trailing" constant="8" id="kPq-EE-FhA"/>
+                                                </constraints>
+                                            </customView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="qwi-0F-NiB" firstAttribute="top" secondItem="C1D-TG-Tbc" secondAttribute="top" id="RCx-rq-4wJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="qwi-0F-NiB" secondAttribute="bottom" id="RDC-O6-bEV"/>
+                                            <constraint firstAttribute="trailing" secondItem="qwi-0F-NiB" secondAttribute="trailing" priority="750" id="gAf-4P-KsT"/>
+                                            <constraint firstAttribute="width" constant="200" id="oGi-QS-Mwx"/>
+                                            <constraint firstItem="qwi-0F-NiB" firstAttribute="leading" secondItem="C1D-TG-Tbc" secondAttribute="leading" id="w3o-q4-2DE"/>
+                                        </constraints>
+                                    </customView>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="4Ee-bJ-9gb" customClass="WhiteView" customModule="StackSplit" customModuleProvider="target">
+                                        <rect key="frame" x="208" y="0.0" width="476" height="440"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OMq-6E-fbK">
+                                                <rect key="frame" x="205" y="212" width="67" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Right view" id="WDP-YF-ZvJ">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="OMq-6E-fbK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4Ee-bJ-9gb" secondAttribute="leading" constant="8" id="Kar-os-exq"/>
+                                            <constraint firstItem="OMq-6E-fbK" firstAttribute="centerX" secondItem="4Ee-bJ-9gb" secondAttribute="centerX" id="VQH-bO-XOm"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OMq-6E-fbK" secondAttribute="trailing" constant="8" id="XMd-IJ-rMn"/>
+                                            <constraint firstItem="OMq-6E-fbK" firstAttribute="centerY" secondItem="4Ee-bJ-9gb" secondAttribute="centerY" id="yD4-37-NuD"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
+                                <gestureRecognizers>
+                                    <panGestureRecognizer delaysPrimaryMouseButtonEvents="YES" id="vuR-hz-sYw">
+                                        <connections>
+                                            <action selector="pan:" target="XfG-lQ-9wD" id="tiC-BI-k6H"/>
+                                            <outlet property="delegate" destination="XfG-lQ-9wD" id="sPd-gd-3pf"/>
+                                        </connections>
+                                    </panGestureRecognizer>
+                                </gestureRecognizers>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="1Wv-yU-7sN" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="009-ea-bdE"/>
+                            <constraint firstAttribute="bottom" secondItem="1Wv-yU-7sN" secondAttribute="bottom" id="NcB-Io-2Rm"/>
+                            <constraint firstItem="1Wv-yU-7sN" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="aJQ-p3-Uz6"/>
+                            <constraint firstAttribute="trailing" secondItem="1Wv-yU-7sN" secondAttribute="trailing" id="cbA-BE-FpK"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="leftViewWidthConstraint" destination="oGi-QS-Mwx" id="Xl2-Xq-LwI"/>
+                        <outlet property="stackView" destination="1Wv-yU-7sN" id="so2-V0-AkG"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="113" y="791"/>
         </scene>
     </scenes>
 </document>

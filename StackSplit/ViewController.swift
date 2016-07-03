@@ -104,6 +104,7 @@ class ResizeCursorStackView: NSStackView {
     }
 }
 
+@IBDesignable
 class WhiteView: NSView {
     
     override func drawRect(dirtyRect: NSRect) {

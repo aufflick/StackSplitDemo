@@ -680,7 +680,7 @@
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="C1D-TG-Tbc" customClass="WhiteView" customModule="StackSplit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="440"/>
                                         <subviews>
-                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="qwi-0F-NiB">
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="qwi-0F-NiB" customClass="WhiteView" customModule="StackSplit" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="440"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ZPj-Xg-JMw">
